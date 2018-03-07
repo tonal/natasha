@@ -400,7 +400,10 @@ AUTO_OKRUG = or_(
         ),
         rule(
             caseless('хмао'),
-            rule('-', caseless('югра')).optional()
+        ).interpretation(Region.name),
+        rule(
+            caseless('хмао'),
+            '-', caseless('югра')
         ).interpretation(Region.name),
     ),
     rule(
@@ -488,9 +491,9 @@ COMPLEX = morph_pipeline([
     'каменск-уральский',
     'орехово-зуево',
     'сергиев посад',
-    'новый уренга',
+    'новый уренгой',
     'ленинск-кузнецкий',
-    'великие лук',
+    'великие луки',
     'каменск-шахтинский',
     'усть-илимск',
     'усолье-сибирский',
